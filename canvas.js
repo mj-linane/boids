@@ -91,6 +91,10 @@ function draw()
     for (let i=numObstacleSlider.value(); i<obstacles.length; i++)
     {
         obstacles.pop();
+        obstacleDiameter.pop();
+        obstaclePositionX.pop();
+        obstaclePositionY.pop();
+        obstaclePosition.pop();
     }
  
 
