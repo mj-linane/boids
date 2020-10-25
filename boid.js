@@ -9,7 +9,8 @@ class Boid
 
     }
     
-    flock(boids) {
+    flock(boids) 
+    {
         this.maxForce = maxForceSlider.value();
         this.maxSpeed = maxSpeedSlider.value();
 
@@ -26,6 +27,7 @@ class Boid
         edgeAvoidance.mult(edgeAvoidanceSlider.value());
         obstacleAvoidance.mult(obstacleAvoidanceSlider.value());
 
+        //add up all forces to acceleration
         this.acceleration.add(alignment);
         this.acceleration.add(cohesion);
         this.acceleration.add(separation);
