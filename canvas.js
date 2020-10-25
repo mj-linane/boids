@@ -8,7 +8,7 @@ const obstacleDiameter = [];
 let uiBoxWidth = 200;
 let uiReference;
 let sliderWidth = uiBoxWidth/2;
-let circleStroke = 8;
+let circleStroke = 10;
 
 let alignmentSlider, cohesionSlider, separationSlider;
 
@@ -39,25 +39,29 @@ function setup()
     edgeAvoidanceSlider = createSlider(0, 2, 1, .1);
     edgeAvoidanceSlider.position(uiBoxWidth / 8, uiReference + 320);
     edgeAvoidanceSlider.style('width', '150px'); 
+
+    mouseAvoidanceSlider = createSlider(0, 2, 1, .1);
+    mouseAvoidanceSlider.position(uiBoxWidth / 8, uiReference + 400);
+    mouseAvoidanceSlider.style('width', '150px'); 
     
     maxForceSlider = createSlider(0, 2, 1, .1); 
-    maxForceSlider.position(uiBoxWidth / 8, uiReference + 400);
+    maxForceSlider.position(uiBoxWidth / 8, uiReference + 480);
     maxForceSlider.style('width', '150px');  
 
     maxSpeedSlider = createSlider(0, 20, 10, 1); 
-    maxSpeedSlider.position(uiBoxWidth / 8, uiReference + 480);
+    maxSpeedSlider.position(uiBoxWidth / 8, uiReference + 560);
     maxSpeedSlider.style('width', '150px'); 
 
     numObstacleSlider = createSlider(0, 20, 0, 1); 
-    numObstacleSlider.position(uiBoxWidth / 8, uiReference + 560);
+    numObstacleSlider.position(uiBoxWidth / 8, uiReference + 640);
     numObstacleSlider.style('width', '150px'); 
 
     perceptionSlider = createSlider(0, 200, 100, 10);
-    perceptionSlider.position(uiBoxWidth / 8, uiReference + 640);
+    perceptionSlider.position(uiBoxWidth / 8, uiReference + 720);
     perceptionSlider.style('width', '150px');
 
     numBoidSlider = createSlider(0, 200, 100, 10); 
-    numBoidSlider.position(uiBoxWidth / 8, uiReference + 720);
+    numBoidSlider.position(uiBoxWidth / 8, uiReference + 800);
     numBoidSlider.style('width', '150px'); 
     
     
@@ -109,11 +113,12 @@ function draw()
     text('Separation: ' + separationSlider.value(), uiBoxWidth/2, uiReference+150);
     text('Obstacle Avoidance: ' + obstacleAvoidanceSlider.value(), uiBoxWidth/2, uiReference+230);
     text('Edge Avoidance: ' + edgeAvoidanceSlider.value(), uiBoxWidth/2, uiReference+310);
-    text('Max Force: ' + maxForceSlider.value(), uiBoxWidth/2, uiReference+390);
-    text('Max Velocity: ' + maxSpeedSlider.value(), uiBoxWidth/2, uiReference+470);
-    text('# Obstacles: ' + numObstacleSlider.value(), uiBoxWidth/2, uiReference+550);
-    text('Perception: ' + perceptionSlider.value(), uiBoxWidth/2, uiReference+630);
-    text('# Boids: ' + numBoidSlider.value(), uiBoxWidth/2, uiReference+710);
+    text('Cursor Avoidance: ' + mouseAvoidanceSlider.value(), uiBoxWidth/2, uiReference+390);
+    text('Max Force: ' + maxForceSlider.value(), uiBoxWidth/2, uiReference+470);
+    text('Max Velocity: ' + maxSpeedSlider.value(), uiBoxWidth/2, uiReference+550);
+    text('# Obstacles: ' + numObstacleSlider.value(), uiBoxWidth/2, uiReference+630);
+    text('Perception: ' + perceptionSlider.value(), uiBoxWidth/2, uiReference+710);
+    text('# Boids: ' + numBoidSlider.value(), uiBoxWidth/2, uiReference+790);
     
 
     for (let boid of flock)

@@ -7,6 +7,10 @@ class Boid
         this.velocity.setMag(random(2, 4))
         this.acceleration = createVector();
 
+        this.r = random(255);
+        this.g = random(255);
+        this.b = random(255);
+
     }
     
     flock(boids) 
@@ -20,12 +24,14 @@ class Boid
         let separation = this.separation(boids);
         let edgeAvoidance = this.edgeAvoidance(boids);
         let obstacleAvoidance = this.obstacleAvoidance(boids);
+        let mouseAvoidance = this.mouseAvoidance(boids);
 
         alignment.mult(alignmentSlider.value());
         cohesion.mult(cohesionSlider.value());
         separation.mult(separationSlider.value()).mult(1.2);
         edgeAvoidance.mult(edgeAvoidanceSlider.value());
         obstacleAvoidance.mult(obstacleAvoidanceSlider.value());
+        mouseAvoidance.mult(mouseAvoidanceSlider.value()).mult(2);
 
         //add up all forces to acceleration
         this.acceleration.add(alignment);
@@ -33,6 +39,7 @@ class Boid
         this.acceleration.add(separation);
         this.acceleration.add(edgeAvoidance);
         this.acceleration.add(obstacleAvoidance);
+        this.acceleration.add(mouseAvoidance);
     
     }
     
@@ -46,7 +53,7 @@ class Boid
     show()
     {
         strokeWeight(circleStroke);
-        stroke('white');
+        stroke(255);
         point(this.position.x, this.position.y);
     }
 
@@ -173,7 +180,7 @@ class Boid
             {
                 let d = dist(this.position.x, this.position.y, obstaclePositionX[i], obstaclePositionY[i]);
     
-                if (other != this && d < perceptionRadius)
+                if (other != this && d - obstacleDiameter[i] < perceptionRadius)
                 {
                     let diff = p5.Vector.sub(this.position, obstaclePosition[i]);
                     diff.div(d);
@@ -183,6 +190,40 @@ class Boid
                 }
 
             }
+        }
+
+        if (total > 0) {
+            steering.div(total);
+            steering.setMag(this.maxSpeed);
+            steering.sub(this.velocity);
+            steering.limit(this.maxForce);
+            
+        }
+        return steering;
+    }
+
+    mouseAvoidance(boids)
+    {
+
+        let perceptionRadius = perceptionSlider.value();
+        let steering = createVector();
+        let total = 0;
+        
+        for (let other of boids)
+        {
+            let mouseVector = createVector(mouseX, mouseY);
+
+            let d = dist(this.position.x, this.position.y, mouseX, mouseY);
+    
+            if (other != this && d < perceptionRadius)
+            {
+                let diff = p5.Vector.sub(this.position, mouseVector);
+                diff.div(d);
+                steering.add(diff);
+                total++;
+            }
+
+    
         }
 
         if (total > 0) {
