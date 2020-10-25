@@ -44,7 +44,7 @@ function setup()
     maxForceSlider.position(uiBoxWidth / 8, uiReference + 400);
     maxForceSlider.style('width', '150px');  
 
-    maxSpeedSlider = createSlider(0, 10, 5, 1); 
+    maxSpeedSlider = createSlider(0, 20, 10, 1); 
     maxSpeedSlider.position(uiBoxWidth / 8, uiReference + 480);
     maxSpeedSlider.style('width', '150px'); 
 

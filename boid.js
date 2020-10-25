@@ -22,7 +22,7 @@ class Boid
 
         alignment.mult(alignmentSlider.value());
         cohesion.mult(cohesionSlider.value());
-        separation.mult(separationSlider.value());
+        separation.mult(separationSlider.value()).mult(1.2);
         edgeAvoidance.mult(edgeAvoidanceSlider.value());
         obstacleAvoidance.mult(obstacleAvoidanceSlider.value());
 
