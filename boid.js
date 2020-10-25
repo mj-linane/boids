@@ -179,8 +179,9 @@ class Boid
             for (let i=0; i<numObstacleSlider.value(); i++)
             {
                 let d = dist(this.position.x, this.position.y, obstaclePositionX[i], obstaclePositionY[i]);
+                d -= obstacleDiameter[i]/2;
     
-                if (other != this && d - obstacleDiameter[i] < perceptionRadius)
+                if (other != this && d < perceptionRadius)
                 {
                     let diff = p5.Vector.sub(this.position, obstaclePosition[i]);
                     diff.div(d);
