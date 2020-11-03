@@ -1,6 +1,29 @@
-body 
-{
-    height: 100%;
-    margin: 0;
-    display: flex;
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Oswald', sans-serif;
+  color: white;
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  min-width: 20vw;
+  background-color: #e65a5a;
+}
+
+.slider-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-label-group {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-content: center;
 }
