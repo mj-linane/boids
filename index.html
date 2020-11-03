@@ -1,17 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Boids</title>
-</head>
-<body>
-    
+  </head>
+  <body>
+    <div id="sidebar">
+      <!-- Alignment Slider -->
+      <div id="alignment-slider-container" class="slider-container">
+        <div id="alignment-slider-label-group" class="slider-label-group">
+          <p>Alignment:</p>
+          <p id="alignment-slider-display"></p>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="2"
+          value="1"
+          step="0.1"
+          class="slider"
+          id="alignment-slider"
+        />
+      </div>
+      <!-- Cohesion Slider -->
+      <div class="slider-container">
+        <div class="slider-label-group">
+          <p>Cohesion:</p>
+          <p id="cohesion-slider-display"></p>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="2"
+          value="1"
+          step="0.1"
+          class="slider"
+          id="cohesion-slider"
+        />
+      </div>
+      <!-- Separation Slider -->
+      <div class="slider-container">
+        <div class="slider-label-group">
+          <p>Separation:</p>
+          <p id="separation-slider-display"></p>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="2"
+          value="1"
+          step="0.1"
+          class="slider"
+          id="separation-slider"
+        />
+      </div>
+      <!-- Obstacle Avoidance Slider -->
+      <div class="slider-container">
+        <div class="slider-label-group">
+          <p>Obstacle Avoidance:</p>
+          <p id="obstacle-avoidance-slider-display"></p>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="2"
+          value="1"
+          step="0.1"
+          class="slider"
+          id="obstacle-avoidance-slider"
+        />
+      </div>
+      <!-- Edge Avoidance Slider -->
+      <div class="slider-container">
+        <div class="slider-label-group">
+          <p>Edge Avoidance:</p>
+          <p id="edge-avoidance-slider-display"></p>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="2"
+          value="1"
+          step="0.1"
+          class="slider"
+          id="edge-avoidance-slider"
+        />
+      </div>
+      <!-- Mouse Avoidance Slider -->
+      <div class="slider-container">
+        <div class="slider-label-group">
+          <p>Mouse Avoidance:</p>
+          <p id="mouse-avoidance-slider-display"></p>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="2"
+          value="1"
+          step="0.1"
+          class="slider"
+          id="mouse-avoidance-slider"
+        />
+      </div>
+      <!-- Max Force Slider -->
+      <div class="slider-container">
+        <div class="slider-label-group">
+          <p>Obstacle Avoidance:</p>
+          <p id="max-force-slider-display"></p>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="2"
+          value="1"
+          step="0.1"
+          class="slider"
+          id="max-force-slider"
+        />
+      </div>
+      <!-- Max Speed Slider -->
+      <div class="slider-container">
+        <div class="slider-label-group">
+          <p>Max Speed Avoidance:</p>
+          <p id="max-speed-slider-display"></p>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="20"
+          value="10"
+          step="1"
+          class="slider"
+          id="max-speed-slider"
+        />
+      </div>
+      <!-- Number of Obstacles Slider -->
+      <div class="slider-container">
+        <div class="slider-label-group">
+          <p>Number of Obstacles:</p>
+          <p id="number-obstacles-slider-display"></p>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="20"
+          value="0"
+          step="1"
+          class="slider"
+          id="number-obstacles-slider"
+        />
+      </div>
+      <!-- Perception Slider -->
+      <div class="slider-container">
+        <div class="slider-label-group">
+          <p>Perception:</p>
+          <p id="perception-slider-display"></p>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="200"
+          value="100"
+          step="10"
+          class="slider"
+          id="perception-slider"
+        />
+      </div>
+      <!-- Number of Boids Slider -->
+      <div class="slider-container">
+        <div class="slider-label-group">
+          <p>Number of Boids:</p>
+          <p id="number-boid-slider-display"></p>
+        </div>
+        <input
+          type="range"
+          min="0"
+          max="200"
+          value="100"
+          step="10"
+          class="slider"
+          id="number-boid-slider"
+        />
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
     <script src="boid.js"></script>
     <script src="canvas.js"></script>
     <script src="obstacle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
-</body>
+  </body>
 </html>
